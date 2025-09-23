@@ -1,6 +1,5 @@
 import {
 	IExecuteFunctions,
-	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
@@ -12,16 +11,17 @@ export class Random implements INodeType {
 		name: 'random',
 		icon: 'file:integral.svg',
 		group: ['transform'],
+		version: 1,
 		description: 'Conector que retorna um número aleatório num intervalo definido pelo usuário',
 		defaults: {
 			name: 'random',
-		}
+		},
 		inputs: ['main'],
 		outputs: ['main'],
 		credentials: [
 			{
 				name: 'randomNodeCredential',
-				required: 'true',
+				required: true,
 			},
 		],
 		properties: [
@@ -36,7 +36,8 @@ export class Random implements INodeType {
 					},
 				],
 				noDataExpression: true,
-				descriptions: 'Gera um número aleatório',
+				description: 'Gera um número aleatório',
+				default: 'gerar',
 			},
 
 			{
@@ -55,10 +56,11 @@ export class Random implements INodeType {
 					{
 						name: 'Gerar',
 						value: 'gerar',
-						action: 'Gerar um número aleatório'
-						description: 'Gerar um número aleatório no intervalo especificado'
+						action: 'Gerar um número aleatório',
+						description: 'Gerar um número aleatório no intervalo especificado',
 					},
 				],
+				default: 'gerar',
 			},
 
 			{
@@ -108,6 +110,7 @@ export class Random implements INodeType {
 	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 		const resource = this.getNodeParameter('resource', 0) as string;
 		const operation = this.getNodeParameter('option', 0) as string;
+		const returnData = [];
 		let responseData;
 
 		if(resource === 'gerar' && operation === 'gerar') {
@@ -122,10 +125,16 @@ export class Random implements INodeType {
 			
 			try {
 				responseData = await this.helpers.requestWithAuthentication.call(this,'randomNodeCredential', options);
+
+
+				returnData.push(responseData);
+
 			} catch(error) {
 				throw new Error(`Random Number Generato API error: ${error.message}`);
 			}
 		}
+
+		return [this.helpers.returnJsonArray(returnData)];
 	}
 
 } //End Class
