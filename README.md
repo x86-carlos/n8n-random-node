@@ -114,7 +114,20 @@ docker compose up
 ```
 4. Abra um navegador e entre no n8n em http://localhost:5678
 5. Ao abrir o n8n pela primeira vez será pedido para que se crie uma nova conta
+
+![Tela para criar conta durante o primeiro login no n8n](./asssets/n8n-image-01.png "Página para criar conta")
+
 6. Após criar uma conta, na página inicial do n8n, aperte no botão para criar um novo *workflow*.
+
+![Dashboard do n8n](./assets/n8n-image-02.png "Página inicial do n8n")
+
 7. Na página do novo *workflow* selecione o ícone de *+* e busque pelo conector *Random*.
+
+![Novo workflow vazio](./assets/n8n-image-03.png "Novo Workflow vazio")
+
+![Resultado da busca pelo conector *Random*](./assets/n8n-image-4.png "Busca pelo conector implementado")
+
 8. Crie uma credencial vazia, pois a o endpoint da API não exige uma chave
 9. Preencha os *inputs* do conector (ou use os *defaults*) e pressione *Execute Step* para executar o conector e sortear um número aleatório.
+
+![Painel do conector Random](./assests/n8n-image-05.png "Teste do conector")
