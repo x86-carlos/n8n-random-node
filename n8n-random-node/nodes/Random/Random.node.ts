@@ -5,8 +5,10 @@ import {
 	INodeTypeDescription,
 } from 'n8n-workflow';
 
+// Criar classe para o conector
 export class Random implements INodeType {
 	description: INodeTypeDescription = {
+		// Descrição do conector
 		displayName: 'Random',
 		name: 'random',
 		icon: 'file:integral.svg',
@@ -25,6 +27,7 @@ export class Random implements INodeType {
 			},
 		],
 		properties: [
+			// Definir qual recurso da API o conector irá utilizar
 			{
 				displayName: 'Resource',
 				name: 'resource',
@@ -40,6 +43,7 @@ export class Random implements INodeType {
 				default: 'getResource',
 			},
 
+			// Definir operação executada pelo conector
 			{
 				displayName: 'Options',
 				name: 'option',
@@ -63,6 +67,7 @@ export class Random implements INodeType {
 				default: 'operationGerar',
 			},
 
+			// Definir campos númericos 'Mínimo' e 'Máximo'
 			{
 				displayName: 'Min',
 				name: 'minNumber',
@@ -84,9 +89,10 @@ export class Random implements INodeType {
 				},
 				default: 100,
 			},
-		], //End Properties
-	}; //End Description
+		], 
+	}; 
 
+	// Função para realizar consulta na API
 	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 		const items = this.getInputData();
 		const resource = this.getNodeParameter('resource', 0) as string;
@@ -119,4 +125,4 @@ export class Random implements INodeType {
 		return [this.helpers.returnJsonArray(returnData)];
 	}
 
-} //End Class
+} 
