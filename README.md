@@ -9,7 +9,7 @@ Todos os trechos de código a seguir foram executados em um **Debian 12** utiliz
 - [PostgreSQL](https://www.postgresql.org/download/)
 - [Node.js e npm](https://nodejs.org/en/download)
 
-##Execução do conector
+## Execução do conector
 
 ### Configuração do PostgreSQL para instância local do n8n
 
@@ -49,7 +49,7 @@ touch .env
 ```
 3. Preencha o arquivo .env com as variáveis de ambiente
 
-```sh
+```console
 # .env file
 N8N_TIMEZONE=<seu_fuso_horario>
 
@@ -64,15 +64,15 @@ N8N_PORT=5678
 ```
 **OBS:** Para encontrar o fuso horário do sistema utilize o comando ``timedatectl``
 
-**OBS2**: A porta padrão do PostgreSQL é a ==5432== e o *schema* padrão é ==public==. Contudo para encontrar essas informações utilize os seguintes comandos: 
+**OBS 2**: A porta padrão do PostgreSQL é a ==5432== e o *schema* padrão é ==public==. Contudo para encontrar essas informações utilize os seguintes comandos: 
 
 ```console
-#Conectar ao postgres
+# Conectar ao postgres
 sudo -u postgres psql
 
-#Descobrir a porta
+# Descobrir a porta
 \conninfo
 
-#Descobrir o schema
+# Descobrir o schema
 \dn
 ```
