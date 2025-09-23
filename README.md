@@ -101,13 +101,20 @@ npm run build
 ```console
 cd ../
 ```
-2. Inicie o container
+2. Inicie o serviço ``docker-desktop.service``
+
+```console
+systemctl --user docker-desktop.service
+```
+
+3. Inicie o container
 
 ```console
 docker compose up
 ```
-3. Abra um navegador e entre no n8n em http://localhost:5678
-4. Ao abrir o n8n pela primeira vez será pedido para que se crie uma nova conta
-5. Após criar uma conta, na página inicial do n8n, aperte no botão para criar um novo *workflow*.
-6. Na página do novo *workflow* selecione o ícone de *+* e busque pelo conector *Random*.
-7. Preencha os *inputs* do conector (ou use os *defaults*) e o execute para sortear um número aleatório.
+4. Abra um navegador e entre no n8n em http://localhost:5678
+5. Ao abrir o n8n pela primeira vez será pedido para que se crie uma nova conta
+6. Após criar uma conta, na página inicial do n8n, aperte no botão para criar um novo *workflow*.
+7. Na página do novo *workflow* selecione o ícone de *+* e busque pelo conector *Random*.
+8. Crie uma credencial vazia, pois a o endpoint da API não exige uma chave
+9. Preencha os *inputs* do conector (ou use os *defaults*) e pressione *Execute Step* para executar o conector e sortear um número aleatório.
