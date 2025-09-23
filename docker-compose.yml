@@ -1,20 +1,21 @@
 services:
   n8n:
     image: docker.n8n.io/n8nio/n8n
+    env_file: .env
     ports:
-      - "5678:5678"
+      - "${N8N_PORT}:5678"
     environment:
-      - GENERIC_TIMEZONE=Europe/London
-      - TZ=Europe/London
+      - GENERIC_TIMEZONE=${N8N_TIMEZONE}
+      - TZ=${N8N_TIMEZONE}
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
       - N8N_RUNNERS_ENABLED=true
       - DB_TYPE=postgresdb
-      - DB_POSTGRESDB_DATABASE=n8n_db
-      - DB_POSTGRESDB_HOST=n8n-postgres
-      - DB_POSTGRESDB_PORT=5432
-      - DB_POSTGRESDB_USER=n8n_user
-      - DB_POSTGRESDB_SCHEMA=public
-      - DB_POSTGRESDB_PASSWORD=0599
+      - DB_POSTGRESDB_DATABASE=${POSTGRES_DB}
+      - DB_POSTGRESDB_HOST=${POSTGRES_HOST}
+      - DB_POSTGRESDB_PORT=${POSTGRES_PORT}
+      - DB_POSTGRESDB_USER=${POSTGRES_USER}
+      - DB_POSTGRESDB_SCHEMA=${POSTGRES_SCHEMA}
+      - DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD}
       - N8N_CUSTOM_EXTENSIONS=/home/node/.n8n/custom
     volumes:
       - n8n_data:/home/node/.n8n
@@ -27,9 +28,9 @@ services:
   n8n-postgres:
     image: postgres:13
     environment:
-      - POSTGRES_DB=n8n_db
-      - POSTGRES_USER=n8n_user
-      - POSTGRES_PASSWORD=0599
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
