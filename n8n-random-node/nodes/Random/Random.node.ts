@@ -71,16 +71,6 @@ export class Random implements INodeType {
 				typeOptions: {
 					numberPrecision:0,
 				},
-				displayOptions: {
-					show: {
-						resource: [
-							'gerar',	
-						],
-						operation: [
-							'gerar',
-						],
-					},
-				},
 				default: 1,
 			},
 
@@ -92,48 +82,40 @@ export class Random implements INodeType {
 				typeOptions: {
 					numberPrecision:0,
 				},
-				displayOptions: {
-					show: {
-						resource: [
-							'gerar',	
-						],
-						operation: [
-							'gerar',
-						],
-					},
-				},
 				default: 1,
 			},
 		], //End Properties
 	}; //End Description
 
 	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
+		const items = this.getInputData();
 		const resource = this.getNodeParameter('resource', 0) as string;
 		const operation = this.getNodeParameter('option', 0) as string;
 		const returnData = [];
 		let responseData;
-
-		if(resource === 'gerar' && operation === 'gerar') {
-			const min = this.getNodeParameter('minNumber', 0) as string;
-			const max = this.getNodeParameter('maxNumber', 0) as string;
-			const options = {
-				headers: {
-					'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-				},
-				uri: `https://www.random.org/integers/?num=1&min=${min}&max=${max}&col=1&base=10&format=plain&rnd=new`,
-			};
+		
+		for(let i = 0; i < items.length; i++){
+			if(resource === 'gerar' && operation === 'gerar') {
+				const min = this.getNodeParameter('minNumber', 1) as string;
+				const max = this.getNodeParameter('maxNumber', 1) as string;
+				const options = {
+					headers: {
+						'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+					},
+					uri: `https://www.random.org/integers/?num=1&min=${min}&max=${max}&col=1&base=10&format=plain&rnd=new`,
+				};
 			
-			try {
-				responseData = await this.helpers.requestWithAuthentication.call(this,'randomNodeCredential', options);
+				try {
+					responseData = await this.helpers.requestWithAuthentication.call(this,'randomNodeCredential', options);
 
 
-				returnData.push(responseData);
+					returnData.push(responseData);
 
-			} catch(error) {
-				throw new Error(`Random Number Generato API error: ${error.message}`);
+				} catch(error) {
+					throw new Error(`Random Number Generato API error: ${error.message}`);
+				}
 			}
 		}
-
 		return [this.helpers.returnJsonArray(returnData)];
 	}
 
