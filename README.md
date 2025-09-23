@@ -1,6 +1,9 @@
 # Instruções para instalação e teste do conector personalizado
 
-Todos os trechos de código a seguir foram executados em um **Debian 12** utilizando o interpretador de comandos **Bash**.
+Este documento tem como objetivo oferecer instruções para a instalação e execução de um conector personalizado na plataforma n8n. Esse conector, mais especificamente, tem com principal funcionalidade acessar o endpoint https://www.random.org/integers/?num=1&min=1&max=60&col=1&base=10&format=plain&rnd=new o qual retorna um número aleatório dentro de um intervalo especificado por um mínimo e um máximo (inclusos). A seguir algumas observações importantes:
+
+- Todos os trechos de código a seguir foram executados e testados em um **Debian 12** utilizando o interpretador de comandos **Bash**.
+- Sempre que texto abaixo aparecer envolto por <> substitua pela informação adequada.
 
 ## Depêndencias
 
@@ -13,7 +16,7 @@ Todos os trechos de código a seguir foram executados em um **Debian 12** utiliz
 
 ### Configuração do PostgreSQL para instância local do n8n
 
-1. Confirir se o PostgreSQL está executando
+1. Conferir se o PostgreSQL está executando
 
 ```console
 sudo systemctl status postgresql.service
