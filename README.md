@@ -42,7 +42,7 @@ GRANT ALL PRIVILEGES ON DATABASE <nome_base_de_dados> TO <nome_usuario>;
 git clone https://github.com/x86-carlos/n8n-random-node.git
 ```
 
-2. Criar arquivo .env na raiz do projeto
+2. Criar arquivo .env na raiz do projeto e abrir com seu editor de preferência
 
 ```console
 cd n8n-random-node
