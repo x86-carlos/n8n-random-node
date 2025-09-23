@@ -64,7 +64,7 @@ N8N_PORT=5678
 ```
 **OBS:** Para encontrar o fuso horário do sistema utilize o comando ``timedatectl``
 
-**OBS 2**: A porta padrão do PostgreSQL é a ==5432== e o *schema* padrão é ==public==. Contudo para encontrar essas informações utilize os seguintes comandos: 
+**OBS 2**: A porta padrão do PostgreSQL é a **5432** e o *schema* padrão é **public**. Contudo para encontrar essas informações utilize os seguintes comandos: 
 
 ```console
 # Conectar ao postgres
@@ -93,4 +93,20 @@ npm install
 ```console
 npm run build
 ```
+### Executar instancia local e testar nó
 
+1. Navegue até a o diretório que contem o arquivo ``docker-compose.yml``
+
+```console
+cd ../
+```
+2. Inicie o container
+
+```console
+docker compose up
+```
+3. Abra um navegador e entre no n8n em http://localhost:5678
+4. Ao abrir o n8n pela primeira vez será pedido para que se crie uma nova conta
+5. Após criar uma conta, na página inicial do n8n, aperte no botão para criar um novo *workflow*.
+6. Na página do novo *workflow* selecione o ícone de *+* e busque pelo conector *Random*.
+7. Preencha os *inputs* do conector (ou use os *defaults*) e o execute para sortear um número aleatório.
