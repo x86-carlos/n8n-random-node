@@ -18,7 +18,7 @@ services:
       - N8N_CUSTOM_EXTENSIONS=/home/node/.n8n/custom
     volumes:
       - n8n_data:/home/node/.n8n
-      - ./n8n-friend-grid/dist:/home/node/.n8n/custom/n8n-nodes-friend-grid
+      - ./n8n-random-node/dist:/home/node/.n8n/custom/n8n-nodes-random-node
     depends_on:
       - n8n-postgres
     networks:
