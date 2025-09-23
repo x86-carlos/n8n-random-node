@@ -125,9 +125,9 @@ docker compose up
 
 ![Novo workflow vazio](./assets/n8n-image-03.png "Novo Workflow vazio")
 
-![Resultado da busca pelo conector *Random*](./assets/n8n-image-4.png "Busca pelo conector implementado")
+![Resultado da busca pelo conector *Random*](./assets/n8n-image-04.png "Busca pelo conector implementado")
 
 8. Crie uma credencial vazia, pois a o endpoint da API não exige uma chave
 9. Preencha os *inputs* do conector (ou use os *defaults*) e pressione *Execute Step* para executar o conector e sortear um número aleatório.
 
-![Painel do conector Random](./assests/n8n-image-05.png "Teste do conector")
+![Painel do conector Random](./assets/n8n-image-05.png "Teste do conector")
