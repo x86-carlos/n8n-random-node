@@ -115,7 +115,7 @@ docker compose up
 4. Abra um navegador e entre no n8n em http://localhost:5678
 5. Ao abrir o n8n pela primeira vez será pedido para que se crie uma nova conta
 
-![Tela para criar conta durante o primeiro login no n8n](./asssets/n8n-image-01.png "Página para criar conta")
+![Tela para criar conta durante o primeiro login no n8n](./assets/n8n-image-01.png "Página para criar conta")
 
 6. Após criar uma conta, na página inicial do n8n, aperte no botão para criar um novo *workflow*.
 
