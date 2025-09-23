@@ -31,6 +31,7 @@ sudo -u postgres psql
 CREATE DATABASE <nome_base_de_dados>;
 CREATE USER <nome_usuario> WITH ENCRYPTED PASSWORD '<senha_usuario>';
 GRANT ALL PRIVILEGES ON DATABASE <nome_base_de_dados> TO <nome_usuario>;
+\q
 ```
 
 ### Configuração das variáveis de ambiente
