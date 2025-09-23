@@ -31,13 +31,13 @@ export class Random implements INodeType {
 				type: 'options',
 				options: [
 					{
-						name: 'Gerar',
-						value: 'gerar',
+						name: 'GET random.org/integers',
+						value: 'getResource',
 					},
 				],
 				noDataExpression: true,
 				description: 'Gera um número aleatório',
-				default: 'gerar',
+				default: 'getResource',
 			},
 
 			{
@@ -47,20 +47,20 @@ export class Random implements INodeType {
 				displayOptions: {
 					show: {
 						resource: [
-							'gerar',
+							'getResource',
 						],
 					},
 				},
 				noDataExpression: true,
 				options: [
 					{
-						name: 'Gerar',
-						value: 'gerar',
+						name: 'True Random Number Generator',
+						value: 'operationGerar',
 						action: 'Gerar um número aleatório',
 						description: 'Gerar um número aleatório no intervalo especificado',
 					},
 				],
-				default: 'gerar',
+				default: 'operationGerar',
 			},
 
 			{
@@ -82,7 +82,7 @@ export class Random implements INodeType {
 				typeOptions: {
 					numberPrecision:0,
 				},
-				default: 1,
+				default: 100,
 			},
 		], //End Properties
 	}; //End Description
@@ -95,7 +95,7 @@ export class Random implements INodeType {
 		let responseData;
 		
 		for(let i = 0; i < items.length; i++){
-			if(resource === 'gerar' && operation === 'gerar') {
+			if(resource === 'getResource' && operation === 'operationGerar') {
 				const min = this.getNodeParameter('minNumber', 1) as string;
 				const max = this.getNodeParameter('maxNumber', 1) as string;
 				const options = {
