@@ -66,9 +66,9 @@ POSTGRES_SCHEMA=<schema_postgres>
 
 N8N_PORT=5678
 ```
-**OBS:** Para encontrar o fuso horário do sistema utilize o comando ``timedatectl``
+**OBS 1:** Para encontrar o fuso horário do sistema utilize o comando ``timedatectl``
 
-**OBS 2**: A porta padrão do PostgreSQL é a **5432** e o *schema* padrão é **public**. Contudo para encontrar essas informações utilize os seguintes comandos: 
+**OBS 2:**: A porta padrão do PostgreSQL é a **5432** e o *schema* padrão é **public**. Contudo para encontrar essas informações utilize os seguintes comandos: 
 
 ```console
 # Conectar ao postgres
@@ -120,17 +120,17 @@ docker compose up
 
 ![Tela para criar conta durante o primeiro login no n8n](./assets/n8n-image-01.png "Página para criar conta")
 
-6. Após criar uma conta, na página inicial do n8n, aperte no botão para criar um novo *workflow*.
+6. Após criar uma conta, na página inicial do n8n, aperte no botão para criar um novo *workflow*
 
 ![Dashboard do n8n](./assets/n8n-image-02.png "Página inicial do n8n")
 
-7. Na página do novo *workflow* selecione o ícone de *+* e busque pelo conector *Random*.
+7. Na página do novo *workflow* selecione o ícone de *+* e busque pelo conector *Random*
 
 ![Novo workflow vazio](./assets/n8n-image-03.png "Novo Workflow vazio")
 
 ![Resultado da busca pelo conector *Random*](./assets/n8n-image-04.png "Busca pelo conector implementado")
 
 8. Crie uma credencial vazia, pois a o endpoint da API não exige uma chave
-9. Preencha os *inputs* do conector (ou use os *defaults*) e pressione *Execute Step* para executar o conector e sortear um número aleatório.
+9. Preencha os *inputs* do conector (ou use os *defaults*) e pressione *Execute Step* para executar o conector e sortear um número aleatório
 
 ![Painel do conector Random](./assets/n8n-image-05.png "Teste do conector")
