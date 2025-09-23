@@ -9,7 +9,7 @@ Todos os trechos de código a seguir foram executados em um **Debian 12** utiliz
 - [PostgreSQL](https://www.postgresql.org/download/)
 - [Node.js e npm](https://nodejs.org/en/download)
 
-##Execução do conector
+## Execução do conector
 
 ### Configuração do PostgreSQL para instância local do n8n
 
@@ -76,3 +76,21 @@ sudo -u postgres psql
 #Descobrir o schema
 \dn
 ```
+### Configurando conector personalizado
+
+1. Navegue até a raiz do código do conector
+
+```console
+cd n8n-random-node-code
+```
+2. Instale as dependências
+
+```console
+npm install
+```
+3. Execute o *script* de *build* do conector
+
+```console
+npm run build
+```
+
