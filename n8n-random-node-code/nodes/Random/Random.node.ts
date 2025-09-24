@@ -70,7 +70,7 @@ export class Random implements INodeType {
 
 			// Definir campos númericos 'Mínimo' e 'Máximo'
 			{
-				displayName: 'Min',
+				displayName: 'Minimum',
 				name: 'minNumber',
 				required: true,
 				type: 'number',
@@ -81,7 +81,7 @@ export class Random implements INodeType {
 			},
 
 			{
-				displayName: 'Max',
+				displayName: 'Maximum',
 				name: 'maxNumber',
 				required: true,
 				type: 'number',
