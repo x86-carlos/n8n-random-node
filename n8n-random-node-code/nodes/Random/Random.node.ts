@@ -3,6 +3,7 @@ import {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
+	NodeOperationError,
 } from 'n8n-workflow';
 
 // Criar classe para o conector
@@ -98,24 +99,34 @@ export class Random implements INodeType {
 		const resource = this.getNodeParameter('resource', 0) as string;
 		const operation = this.getNodeParameter('option', 0) as string;
 		const returnData = [];
-		let responseData;
+		let numeroSorteado;
 		
 		for(let i = 0; i < items.length; i++){
 			if(resource === 'getResource' && operation === 'operationGerar') {
 				const min = this.getNodeParameter('minNumber', 1) as string;
 				const max = this.getNodeParameter('maxNumber', 1) as string;
+			
+				if(min > max) {
+					throw new NodeOperationError(this.getNode(), `Valor mínimo (${min}) deve ser menor que o valor máximo (${max})`)
+				}
+
 				const options = {
 					headers: {
-						'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+						'Accept': 'text/plain',
 					},
 					uri: `https://www.random.org/integers/?num=1&min=${min}&max=${max}&col=1&base=10&format=plain&rnd=new`,
 				};
 			
 				try {
-					responseData = await this.helpers.requestWithAuthentication.call(this,'randomNodeCredential', options);
+					numeroSorteado = await this.helpers.requestWithAuthentication.call(this,'randomNodeCredential', options);
 
+					numeroSorteado = numeroSorteado.replace(/\n/g, "");
 
-					returnData.push(responseData);
+					returnData.push({
+						json:{
+							numeroSorteado,
+						}
+					});
 
 				} catch(error) {
 					throw new Error(`Random Number Generato API error: ${error.message}`);
