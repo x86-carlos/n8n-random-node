@@ -4,5 +4,18 @@
 	"codexVersion":	"1.0",
 	"categories": [
 		"Miscellaneous"
-	]
+	],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://api.random.org/api-keys"
+			}
+		],
+
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/x86-carlos/n8n-random-node"
+			}
+		]
+	}
 }
