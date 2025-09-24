@@ -25,4 +25,5 @@ export class RandomApi implements ICredentialType {
 		},
 	};
 
+	// Não foi implementado um teste para a credencial, pois o endpoint fornecido não exige uma API Key. Contudo, se for necessário adicionar uma chave para outros recursos, basta alterar a classe e adicionar um teste confome o indicado na documentação oficial disponível em: https://docs.n8n.io/integrations/creating-nodes/build/reference/credentials-files/
 }
